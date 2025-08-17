@@ -1,0 +1,163 @@
+/* Import a clean, modern font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+:root {
+  --bg-color: #1a1a2e;
+  --primary-color: #16213e;
+  --accent-color: #e94560;
+  --text-color: #f0f0f0;
+  --disabled-color: #535353;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+}
+
+/* Main Container - Now fully responsive */
+.alarm-container {
+  background-color: var(--primary-color);
+  width: 100%;
+  /* REMOVED max-width and margin: auto to allow full screen */
+  min-height: 100vh;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* Live Digital Clock - Adjusted for better scaling */
+.digital-clock {
+  /* Increased max size for tablets/desktops */
+  font-size: clamp(4rem, 20vw, 8rem); 
+  font-weight: 700;
+  text-align: center;
+  margin: 5rem 0; /* More vertical space on larger screens */
+  color: var(--text-color);
+  text-shadow: 0 0 25px rgba(233, 69, 96, 0.4);
+}
+
+/* Alarm List - Now centers its content */
+.alarm-list {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding-right: 10px;
+  /* Added properties to center the list items */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Alarm Item - Constrained width for readability */
+.alarm-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 1rem 1.5rem;
+  border-radius: 15px;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+  width: 100%;
+  max-width: 600px; /* Prevents items from becoming too wide */
+  box-sizing: border-box;
+}
+
+.alarm-item.disabled {
+  opacity: 0.4;
+  background-color: transparent;
+}
+
+.alarm-time {
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+
+.alarm-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.no-alarms {
+  text-align: center;
+  margin-top: 2rem;
+  color: var(--disabled-color);
+  font-size: 1rem;
+}
+
+/* Floating Add Button */
+.add-btn {
+  position: fixed; /* Use fixed to stay in viewport on scroll */
+  bottom: 2rem;
+  right: 2rem;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: var(--accent-color);
+  color: white;
+  font-size: 2.5rem;
+  line-height: 60px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(233, 69, 96, 0.4);
+  transition: all 0.3s ease;
+  z-index: 100;
+}
+
+.add-btn:hover {
+  transform: scale(1.1) rotate(90deg);
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.delete-btn:hover {
+  transform: scale(1.2);
+}
+
+/* Toggle Switch */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 28px;
+}
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: var(--disabled-color);
+  transition: 0.4s;
+  border-radius: 28px;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+input:checked + .slider {
+  background-color: var(--accent-color);
+}
+input:checked + .slider:before {
+  transform: translateX(22px);
+}

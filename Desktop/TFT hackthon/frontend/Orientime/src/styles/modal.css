@@ -1,0 +1,81 @@
+/* Modal Styles */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.3s ease;
+  z-index: 1000;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-content {
+  background: var(--primary-color, #16213e);
+  padding: 2rem;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 350px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--accent-color, #e94560);
+}
+
+.modal-title {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  color: var(--text-color, #f0f0f0);
+}
+
+.modal-time-input {
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 2rem;
+  border-radius: 8px;
+  border: 2px solid var(--disabled-color, #535353);
+  background: var(--bg-color, #1a1a2e);
+  color: var(--text-color, #f0f0f0);
+  text-align: center;
+  margin-bottom: 2rem;
+  box-sizing: border-box;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.btn-save, .btn-cancel {
+  width: 100%;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-cancel {
+  background-color: var(--disabled-color, #535353);
+  color: white;
+}
+
+.btn-save {
+  background-color: var(--accent-color, #e94560);
+  color: white;
+}
+
+.btn-save:hover, .btn-cancel:hover {
+    opacity: 0.8;
+}

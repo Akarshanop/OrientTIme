@@ -1,0 +1,112 @@
+ @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+/* --- Main Container --- */
+.stopwatch-container {
+  font-family: 'Poppins', sans-serif;
+  background-color: #16213e; /* Dark blue */
+  color: #f0f0f0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Prevents overlap */
+  padding: 4rem 2rem 2rem; /* Pushes content down */
+  box-sizing: border-box;
+}
+
+/* --- Time Display --- */
+.stopwatch-display {
+  font-size: clamp(2.5rem, 10vw, 4.5rem);
+  font-weight: 700;
+  margin-bottom: 2rem;
+  letter-spacing: 2px;
+  text-shadow: 0 0 20px rgba(233, 69, 96, 0.5);
+  flex-shrink: 0;
+  text-align: center;
+}
+
+/* --- Buttons --- */
+.button-group {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 350px;
+  margin-bottom: 2rem;
+  flex-shrink: 0;
+}
+
+.button {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid #4a4a5e;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #aaa;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button:hover:not(:disabled) {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: #6a6a7e;
+}
+
+.button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.button.start {
+  border-color: #00a878;
+  color: #00a878;
+}
+
+.button.stop {
+  border-color: #e94560;
+  color: #e94560;
+}
+
+/* --- Laps --- */
+.laps {
+  width: 100%;
+  max-width: 350px;
+  flex-grow: 1;
+  overflow-y: auto;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  padding: 1rem;
+  text-align: center;
+}
+
+.laps h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #aaa;
+  font-weight: 600;
+  border-bottom: 1px solid #535353;
+  padding-bottom: 0.5rem;
+}
+
+.laps ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.laps li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  font-size: 1.1rem;
+  border-bottom: 1px solid #333;
+}
+
+.laps li:last-child {
+  border-bottom: none;
+}  

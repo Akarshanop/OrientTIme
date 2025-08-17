@@ -1,0 +1,107 @@
+/* Import a clean, modern font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+/* --- Main Container --- */
+.weather-container {
+  font-family: 'Poppins', sans-serif;
+  background-color: #16213e; /* Dark blue from your theme */
+  color: #f0f0f0;
+  width: 100%;
+  height: 100vh;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.weather-container.loading,
+.weather-container.error {
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+/* --- Current Weather Card --- */
+.current-weather-card {
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+}
+
+.current-location {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #aaa;
+  margin-bottom: 0.5rem;
+}
+
+.current-temp {
+  font-size: 6rem;
+  font-weight: 700;
+  line-height: 1;
+  text-shadow: 0 0 25px rgba(233, 69, 96, 0.5);
+}
+
+.current-condition {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+/* --- Hourly Forecast --- */
+.hourly-forecast-container {
+  width: 100%;
+  max-width: 400px;
+  flex-grow: 1;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.forecast-header {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #aaa;
+  margin-bottom: 1rem;
+  text-align: center;
+  border-bottom: 1px solid #333;
+  padding-bottom: 0.75rem;
+}
+
+.hourly-list {
+  overflow-y: auto;
+  padding-right: 10px; /* space for scrollbar */
+}
+
+.hourly-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0.5rem;
+  font-size: 1.1rem;
+}
+
+.hour-time {
+  width: 35%;
+  text-align: left;
+}
+
+.hour-icon {
+  width: 30%;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.hour-temp {
+  width: 35%;
+  text-align: right;
+  font-weight: 600;
+}
