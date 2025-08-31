@@ -1,0 +1,98 @@
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;             
+  background: #0b0f1b;  
+}
+
+:root {
+  --bg:#0d1117;
+  --panel:#11172a;
+  --glass: rgba(255,255,255,0.06);
+  --stroke: rgba(255,255,255,0.12);
+  --text:#e6edf3;
+  --muted:#9aa4b2;
+  --accent:#e94560;
+  --accent-2:#00a878;
+  --shadow: 0 10px 40px rgba(0,0,0,0.45);
+}
+
+* { box-sizing: border-box; }
+
+.page-container {
+	margin: 0;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  color: var(--text);
+  background: radial-gradient(1200px 800px at 10% 10%, #161b29 0%, #0e1320 50%, #0b0f1b 100%);
+  isolation: isolate;
+}
+
+.bg-aurora {
+  position: absolute; inset: -40% -30% auto auto;
+  width: 120vmax; height: 120vmax;
+  background:
+   radial-gradient(closest-side, rgba(233,69,96,0.14), transparent 70%) 10% 20% / 50% 50% no-repeat,
+   radial-gradient(closest-side, rgba(0,168,120,0.12), transparent 70%) 70% 60% / 55% 55% no-repeat;
+  filter: blur(40px);
+  animation: drift 20s ease-in-out infinite alternate;
+  z-index: -2;
+}
+@keyframes drift {
+  from { transform: translate3d(-3%, 2%, 0) rotate(0.5deg); }
+  to { transform: translate3d(3%, -2%, 0) rotate(-0.5deg); }
+}
+
+.bg-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(var(--stroke) 1px, transparent 1px),
+    linear-gradient(90deg, var(--stroke) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(ellipse at center, rgba(0,0,0,.35), transparent 65%);
+  z-index: -1;
+}
+
+/* Active label pill */
+.active-pill {
+	margin-top: 2vw;
+  position: absolute; top: 14px; left: 50%; transform: translateX(-50%);
+  padding: .45rem .9rem;
+  background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
+  border: 1px solid var(--stroke);
+  backdrop-filter: blur(6px);
+  border-radius: 999px;
+  font-size: .9rem; letter-spacing:.3px;
+  color: var(--text);
+  box-shadow: var(--shadow);
+  z-index: 4;
+}
+
+/* Views */
+.view-wrapper {
+  position: absolute; inset: 0;
+  display: grid; place-items: stretch;
+  opacity: 0; transform: scale(.985) translateY(6px);
+  pointer-events: none;
+  transition: opacity .5s ease, transform .5s ease;
+}
+
+.view-wrapper.active {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  pointer-events: auto;
+}
+
+.view-wrapper > * { padding: 1rem; }
+@media (max-width: 768px){
+  .view-wrapper > * { padding: .5rem; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .bg-aurora{ animation: none; }
+  .view-wrapper, .active-pill{ transition: none; }
+}

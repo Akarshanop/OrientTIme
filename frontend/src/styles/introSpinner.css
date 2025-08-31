@@ -1,0 +1,84 @@
+.intro-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: radial-gradient(1200px 800px at 10% 10%, #161b29 0%, #0e1320 50%, #0b0f1b 100%);
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Aurora effect */
+.bg-aurora {
+  position: absolute; inset: -40% -30% auto auto;
+  width: 120vmax; height: 120vmax;
+  background:
+   radial-gradient(closest-side, rgba(233,69,96,0.14), transparent 70%) 10% 20% / 50% 50% no-repeat,
+   radial-gradient(closest-side, rgba(0,168,120,0.12), transparent 70%) 70% 60% / 55% 55% no-repeat;
+  filter: blur(40px);
+  animation: drift 20s ease-in-out infinite alternate;
+  z-index: -2;
+}
+@keyframes drift {
+  from { transform: translate3d(-3%, 2%, 0) rotate(0.5deg); }
+  to { transform: translate3d(3%, -2%, 0) rotate(-0.5deg); }
+}
+
+/* Grid overlay */
+.bg-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(ellipse at center, rgba(0,0,0,.35), transparent 65%);
+  z-index: -1;
+}
+
+/* Spinner wheel */
+.spinner {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  overflow: hidden;
+  animation: spin 5s ease-out forwards;
+  box-shadow: 0px 10px 30px rgba(0,0,0,0.35);
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(1440deg); } /* 4 rotations in 5s */
+}
+
+/* Quadrants */
+.quadrant {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 16px;
+  color: white;
+  text-shadow: 0px 2px 4px rgba(0,0,0,0.4);
+}
+
+.alarm    { background: #ff4757; top: 0; left: 0; }
+.stopwatch{ background: #3742fa; top: 0; right: 0; }
+.timer    { background: #2ed573; bottom: 0; right: 0; }
+.weather  { background: #ffa502; bottom: 0; left: 0; }
+
+/* Center React logo */
+.center-logo {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: white;
+  padding: 10px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.35);
+  z-index: 2;
+}

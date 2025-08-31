@@ -1,0 +1,52 @@
+/* styles/timer.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+.timer-container{
+  font-family:'Poppins',sans-serif;
+  color:#e6edf3; width:100%; height:100vh;
+  padding: 2rem;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  gap: 2rem;
+}
+
+.timer-circle-container{
+  position: relative; display:flex; align-items:center; justify-content:center;
+  margin-bottom: 1rem;
+}
+
+.time-display{
+  position:absolute; inset:auto; border:none; background: transparent;
+  font-size: clamp(3rem, 16vw, 5rem); font-weight:800; color:#e6edf3;
+  text-shadow: 0 0 22px rgba(233,69,96,.4);
+  cursor: pointer; border-radius: 12px; padding: .2rem .6rem;
+  transition: transform .15s ease, filter .2s ease, text-shadow .2s ease;
+}
+.time-display:hover{ transform: translateY(-2px); filter: saturate(1.1); }
+
+.progress-ring{ transform: rotate(-90deg); }
+.progress-ring__background{ fill: transparent; stroke: rgba(255,255,255,.12); }
+.progress-ring__circle{
+  fill:transparent; stroke:#00a878; stroke-linecap: round;
+  transition: stroke-dashoffset .35s linear;
+}
+
+/* Controls */
+.timer-controls{
+  display:flex; align-items:center; justify-content:center;
+  gap: 1.2rem; width:100%; max-width: 440px;
+}
+
+.timer-button{
+  border-radius:50%; border:1px solid rgba(255,255,255,.12);
+  background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+  color:#cfd6df; font-weight:700; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  transition: transform .15s ease, border-color .2s ease, filter .2s ease;
+  box-shadow: 0 8px 26px rgba(0,0,0,.35);
+}
+.timer-button.secondary{ width:74px; height:74px; }
+.timer-button.main-action{ width:112px; height:112px; font-size: 1.05rem; }
+.timer-button:hover{ transform: translateY(-2px); filter: saturate(1.1); }
+
+.timer-button.start{ border-color: rgba(0,168,120,.45); color:#00a878; }
+.timer-button.stop{ border-color: rgba(233,69,96,.45); color:#e94560; }

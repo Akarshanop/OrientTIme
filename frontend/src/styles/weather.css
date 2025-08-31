@@ -1,0 +1,72 @@
+/* styles/weather.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+.weather-container{
+  font-family:'Poppins',sans-serif; color:#e6edf3;
+  width:100%; height:100vh; padding: 2rem;
+  display:flex; flex-direction:column; align-items:center; gap: 1.25rem;
+  overflow:hidden;
+}
+
+.weather-container.loading,
+.weather-container.error {
+  justify-content: center; font-size: 1.4rem;
+}
+
+.current-weather-card{
+  width: 100%; max-width: 440px; text-align:center;
+  margin-top: 1.25rem; margin-bottom: .5rem;
+  padding: 1.25rem 1rem 1.5rem;
+  background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+  border: 1px solid rgba(255,255,255,.12); border-radius: 18px;
+  box-shadow: 0 8px 26px rgba(0,0,0,.35);
+}
+
+.current-location{ font-size: 1.05rem; font-weight: 600; color:#a8b2c1; margin-bottom: .35rem; }
+.current-temp{
+  font-size: clamp(3.2rem, 12vw, 6.2rem);
+  font-weight: 800; line-height:1;
+  text-shadow: 0 0 26px rgba(233,69,96,.45);
+}
+.current-condition{
+  display:flex; justify-content:center; align-items:center; gap: .6rem;
+  font-size: 1.05rem; margin-top: .6rem; color:#cfd6df;
+}
+
+/* Hourly list */
+.hourly-forecast-container{
+  width:100%; max-width: 440px; flex-grow: 1;
+  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+  border: 1px solid rgba(255,255,255,.12); border-radius: 18px;
+  padding: 1rem; display:flex; flex-direction:column;
+  box-shadow: 0 8px 26px rgba(0,0,0,.35);
+}
+
+.forecast-header{
+  font-size: 1.05rem; font-weight:700; color:#a8b2c1; text-align:center;
+  padding-bottom: .6rem; border-bottom: 1px solid rgba(255,255,255,.12);
+  margin-bottom: .6rem;
+}
+
+.hourly-list{ overflow-y:auto; padding-right: 8px; }
+.hourly-item{
+  display:flex; align-items:center; justify-content:space-between;
+  padding: .65rem .25rem; font-size: 1.02rem;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.hourly-item:last-child{ border-bottom: none; }
+
+.hour-time{ width: 38%; text-align:left; color:#cfd6df; }
+.hour-icon{ width: 24%; text-align:center; font-size: 1.35rem; }
+.hour-temp{ width: 38%; text-align:right; font-weight:700; }
+
+.tts-controls{
+  display:flex; align-items:center; gap:.5rem; margin-top:.5rem;
+}
+.tts-btn{
+  background: transparent; border: 1px solid rgba(255,255,255,.12);
+  padding: .35rem .6rem; border-radius: 10px; color: #e6edf3; cursor: pointer;
+}
+.tts-btn:hover{ background: rgba(255,255,255,.08); }
+.tts-toggle{ display:flex; align-items:center; gap:.35rem; opacity:.9; }
+
