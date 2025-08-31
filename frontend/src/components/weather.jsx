@@ -69,7 +69,7 @@ function Weather() {
           };
 
           // 3. Ask your AI proxy for summary
-          const r = await fetch("/ai/summary", {
+          const r = await fetch(`${import.meta.env.VITE_API_URL}/ai/summary`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ weather: payload }),
